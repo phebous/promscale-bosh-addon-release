@@ -1,0 +1,6 @@
+name: promscale
+blobstore:
+  provider: local
+  options:
+    blobstore_path: /tmp/promscale-addon-release/config
+

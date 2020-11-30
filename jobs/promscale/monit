@@ -1,0 +1,6 @@
+check process promscale
+  with pidfile /var/vcap/sys/run/promscale/promscale.pid
+  start program "/var/vcap/jobs/promscale/bin/promscale-ctl.sh start"
+  stop program "/var/vcap/jobs/promscale/bin/promscale-ctl.sh  stop"
+  group vcap
+

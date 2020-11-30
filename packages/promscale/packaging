@@ -1,0 +1,6 @@
+set -e -x
+
+mkdir ${BOSH_INSTALL_TARGET}/bin
+cp -a promscale/* ${BOSH_INSTALL_TARGET}/bin/
+
+chmod +x ${BOSH_INSTALL_TARGET}/bin/promscale 

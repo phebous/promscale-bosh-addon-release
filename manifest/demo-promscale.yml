@@ -1,0 +1,25 @@
+addons:
+  - name: promscale
+    release: promscale
+    include:
+      jobs:
+      - name: prometheus 
+        release: prometheus2 
+        deployment:
+        - test
+    jobs:
+    - name: promscale
+      release: promscale 
+      properties:
+        db-host: dbhostname
+        db-port: 5524
+        db-name: timescale
+        db-password: dbpassword
+        db-user: dbuser
+        advisory-lock-id: 1
+        prometheus-timeout: 15s
+
+releases:
+- name: promscale 
+  version: 1.0.0
+

@@ -1,0 +1,17 @@
+name: promscale
+version: 1.0.0
+commit_hash: non-git
+uncommitted_changes: false
+jobs:
+- name: promscale
+  version: 1d8d76f2acb1262d09386b9a10b13d605123eae03857095752d844d252ea5299
+  fingerprint: 1d8d76f2acb1262d09386b9a10b13d605123eae03857095752d844d252ea5299
+  sha1: sha256:39b5bd72e5da02f2a3f8b5fffebe8f1a586f1005ad253666d0c2befab2d269af
+  packages:
+  - promscale
+packages:
+- name: promscale
+  version: 0d76ac6e3ddcf11d1b43d87c3a430288efcfca846ccc2bc042fcbe965eba296d
+  fingerprint: 0d76ac6e3ddcf11d1b43d87c3a430288efcfca846ccc2bc042fcbe965eba296d
+  sha1: sha256:8da200c47fc48735f78b0994e1054c89dd160279ae23e672e99ad6524f68bb69
+  dependencies: []

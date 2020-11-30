@@ -1,0 +1,40 @@
+---
+name: promscale
+
+templates: 
+  promscale-ctl.erb : bin/promscale-ctl.sh
+
+packages: 
+  - promscale
+
+properties:
+  promscale: 
+    db-host:
+      description: "database host name"
+      default: 'localhost'
+      example: localhost
+    db-port: 
+      description: "this is the port where the database is lisetening"
+      default: '5524' 
+      example: 5524
+    db-name: 
+      description: "The database name"
+      default: 'timescale'
+      example: timescale
+    db-password: 
+      description: "password for access to the database"
+      default: 'pw-secret'
+      example: pw-secret 
+    db-user: 
+      description: "username to access to the database"
+      default: 'postgres'
+      example: postgres
+    advisory-lock-id:
+      description: "Database advisory lock ID"
+      default: '1'
+      example: 1
+    prometheus-timeout: 
+      description: "this is the time to wait with no data before releasing the advsory lock"
+      default: '15s'
+      example: 15s
+ 

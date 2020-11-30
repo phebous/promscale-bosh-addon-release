@@ -1,0 +1,32 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/promscale
+LOG_DIR=/var/vcap/sys/log/promscale
+PIDFILE=${RUN_DIR}/pid
+
+case $1 in
+
+  start)
+    mkdir -p $RUN_DIR $LOG_DIR
+    chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+    cd /var/vcap/packages/promscale/bin
+
+     /var/vcap/packages/promscale/bin/promscale -db-host <%= p('promscale.db-host') %> \
+           -db-port <%= p('promscale.db-port') %> \
+           -db-name <%= p('promscale.db-name') %> \
+           -db-password <%= p('promscale.db-password') %> \
+           -db-user <%= p('promscale.db-user') %> \
+           -leader-election-pg-advisory-lock-id <%= p('promscale.advisory-lock-id') %> \
+           -leader-election-pg-advisory-lock-prometheus-timeout <%= p('promscale.prometheus-timeout') %> \
+      >> $LOG_DIR/promscale.stdout.log & 
+    echo $! > $PIDFILE
+    ;;
+  stop)
+    kill -9 `cat $PIDFILE`
+    rm -f $PIDFILE
+    ;;
+  *)
+    echo "Usage: ctl {start|stop}"
+    ;;
+esac
